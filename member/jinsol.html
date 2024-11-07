@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+  <!-- 파비콘 -->
+  <link rel="icon" href="../res/favicon.ico" type="image/x-icon" />
+
+  <title>아이엠그라운드</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+
+    * {
+      font-family: "Gowun Dodum", sans-serif;
+    }
+
+    .main {
+      color: white;
+
+      background-image: url('https://cdn.pixabay.com/photo/2020/09/09/02/12/smearing-5556288_1280.jpg');
+      background-position: center;
+      background-size: cover;
+    }
+
+    #intro {
+      background-color: rgba(0, 0, 0, 0.562);
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    #info {
+      margin-left: 50px;
+    }
+
+    #photo {
+      margin-right: 50px;
+    }
+
+    .card-img-top {
+      margin-top: 20px;
+      width: 400px;
+      height: 400px;
+    }
+
+    .card {
+      margin: 20px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card-body {
+            
+      height: 130px;
+            
+        }
+
+    
+  </style>
+
+  <script>
+    let isRed = false;
+    function changeHeart() {
+      if (isRed) {
+        $('#heart').text('♡♡♡♡♡');
+        isRed = false;
+      } else {
+        $('#heart').text('♥♥♥♥♥');
+        isRed = true;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5" id="intro">
+        <div id="info">
+          <h2 class="display-5 fw-bold">송진솔</h2>
+          <p class="fs-4">소수정예팀의 <br />백지상태인 팀원입니다.</p>
+          <div id="heart">♡♡♡♡♡</div>
+          <button type="button" class="btn btn-outline-light" onclick="changeHeart()">
+            좋아요
+          </button>
+        </div>
+        <div id="photo">
+          <img src="../res/jinsol.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 소개 카드 -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img
+          src="https://postfiles.pstatic.net/MjAyMjA0MTFfMTA3/MDAxNjQ5NjIzNzgwMTIy.yGTYEZAEr38jjJHn_-QR9Zd2zbnLRv3tb9Q6eHEH6bIg.IfJDIhyaDsTN1x0lj2OsnIeNQtbLC7XAHY0oeHHIezAg.JPEG.useop22/IMG_3334.JPG?type=w966"
+          class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">ESFP</h5>
+          <p class="card-text">저의 mbti는 ESFP입니다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="../res/이레오.jpg" class="card-img-top"
+          alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">애완 파충류 키우기</h5>
+          <p class="card-text">
+            저는 애완파충류를 키우고 있습니다!! <br />
+            이름은 레오이고 레오와 함께 보내는 시간을 좋아합니다
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/b1/64/bd/b164bdf88d0f5f6e44b575f4eb5d03db.jpg" class="card-img-top"
+          alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">좋아하는 음식 / 싫어하는 음식</h5>
+          <p class="card-text">
+            육류와 해산물을 좋아합니다!! <br />
+            고수는 좋아하지 않아요.... 향이 너무 강해서<br />
+            그외엔 잘먹는편 입니다!!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
