@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이엠그라운드</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        background-image: url('../res/board.jpg');
+      }
+      .mypostingbox {
+        width: 500px;
+        margin: 30px auto 0px auto;
+        padding: 20px;
+
+        box-shadow: 0px 0px 3px 0px;
+
+        border-radius: 5px;
+
+        background-image: url('https://cdn.pixabay.com/photo/2016/11/07/18/19/notebook-paper-1806473_640.jpg');
+      }
+
+      .form-control {
+        border: 1px solid #000000;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .mycards {
+        margin-top: 20px;
+      }
+      .col {
+        margin-top: 30px;
+        margin-left: 50px;
+      }
+      .card-body {
+        background-color: yellow;
+        border-radius: 5px;
+      }
+      .card {
+        background-color: transparent;
+        width: 200px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .container {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: lightgray;
+      }
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+      import {
+        collection,
+        addDoc,
+      } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+      import { getDocs } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyCklZ9JTa_pQjoRcKi5D-53WconK7cdA5c',
+        authDomain: 'sparat-af9fb.firebaseapp.com',
+        projectId: 'sparat-af9fb',
+        storageBucket: 'sparat-af9fb.firebasestorage.app',
+        messagingSenderId: '555519918054',
+        appId: '1:555519918054:web:3a556b8dfb0c3e22cc2027',
+        measurementId: 'G-R4FCG5QHEF',
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // 데이터 추가
+      $('#addBtn').click(async function () {
+        let name = $('#name').val();
+        let comment = $('#comment').val();
+
+        try {
+          const docRef = await addDoc(collection(db, 'guestbook'), {
+            name: name,
+            comment: comment,
+          });
+
+          window.location.reload();
+        } catch (e) {
+          console.error('Error adding document: ', e);
+        }
+      });
+
+      // 데이터 읽기 및 카드 생성
+      $('#card').empty();
+      const querySnapshot = await getDocs(collection(db, 'guestbook'));
+
+      querySnapshot.forEach((doc) => {
+        let name = doc.data().name;
+        let comment = doc.data().comment;
+
+        let tempHtml = `<div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="circle"></div>
+                <h5 class="card-title"><br />${name} :</h5>
+                <p class="card-text">${comment}</p>
+              </div>
+            </div>
+          </div>`;
+
+        $('#card').append(tempHtml);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="back">
+      <div class="mypostingbox" id="postingbox">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="이름"
+          />
+          <label for="content">이름</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="comment"
+            placeholder="소감"
+          />
+          <label for="date">소감</label>
+        </div>
+        <div class="mybtn">
+          <button type="button" class="btn btn-dark" id="addBtn">
+            기록하기
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            onclick="location.href='../index.html'"
+          >
+            home
+          </button>
+        </div>
+      </div>
+      <p></p>
+      <div class="mycards">
+        <div class="row row-cols-1 row-cols-md-4 g-4" id="card"></div>
+      </div>
+    </div>
+  </body>
+</html>
