@@ -67,13 +67,13 @@
       // 랜덤 멤버 추가(api)
       async function randomMember() {
         // 빈칸을 채워 완성해주세요!
-        let url = ''; // 여기
-        await fetch() // 여기
+        let url = 'https://randomuser.me/api/'; // 여기
+        await fetch(url) // 여기
           .then((res) => res.json(url))
           .then((data) => {
             // 데이터를 보고 채워주세요
-            image = ; // 여기
-            name = ; // 여기
+            image = data.results[0].picture.large; // 여기
+            name = `${data.results[0].name.title} ${data.results[0].name.first} ${data.results[0].name.last}`; // 여기
           });
         let todayIam = '⭐'.repeat(Math.floor(Math.random() * 5) + 1);
         let randomComment = [
