@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- 파비콘 -->
+    <link rel="icon" href="../res/favicon2.ico" type="image/x-icon" />
+
+    <title>한교범 소개</title>
+
+    <style>
+      .main {
+        color: white;
+
+        background-image: url("https://img.freepik.com/free-photo/arrangement-with-devices-copy-space_23-2148847750.jpg?ga=GA1.1.135778670.1703291672&semt=ais_hybrid");
+        background-position: center;
+        background-size: cover;
+      }
+
+      #intro {
+        background-color: rgba(0, 0, 0, 0.562);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      #info {
+        margin-left: 100px;
+      }
+
+      #photo {
+        margin-right: 100px;
+        display: flex;
+        flex-direction: column; /* 자식 요소들을 수직 방향으로 정렬 */
+        justify-content: center; /* 수직 가운데 정렬 */
+        align-items: center; /* 수평 가운데 정렬 */
+      }
+
+      #photo > img {
+        width: 100%; /* 전체 너비에 맞춤 */
+
+        max-width: 300px; /* 이미지 최대 너비 제한 */
+        border-radius: 50%; /* 원형으로 만듦 */
+        object-fit: cover; /* 비율을 유지하면서 잘라냄 */
+      }
+      #photo > #heart {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #photo > #heart-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-img-top {
+        width: 250px;
+        height: 500px;
+      }
+
+      .card {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card img {
+        width: 480px;
+        height: 500px;
+        object-fit: cover; /* 필요에 따라 contain이나 fill로 변경 가능 */
+        border-radius: 10px; /* 카드에 맞춰 모서리 둥글게 처리 */
+      }
+    </style>
+
+    <script>
+      let isRed = false;
+      function changeHeart() {
+        if (isRed) {
+          $("#heart").text("♡♡♡♡♡");
+          isRed = false;
+        } else {
+          $("#heart").text("♥♥♥♥♥");
+          isRed = true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5" id="intro">
+          <div id="info">
+            <h2 class="display-5 fw-bold">한교범</h2>
+            <br />
+            <p class="col-md-8 fs-4">
+              소수정예의 팀원입니다. <br />
+              "좋아요"버튼 눌러주세요! <br />*오른쪽 이미지는 GPT가 만들어준
+              프로필사진입니다:)
+            </p>
+          </div>
+          <div id="photo">
+            <img src="../res/kyobeom.jpg" alt="" />
+            <br />
+            <br />
+            <div id="heart">♡♡♡♡♡</div>
+            <button
+              id="heart-btn"
+              type="button"
+              class="btn btn-outline-light"
+              onclick="changeHeart()"
+            >
+              좋아요
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 소개 카드 -->
+    <div id="cards" class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img
+            src="https://blog.kakaocdn.net/dn/cIlV4s/btr1IrCFKex/rz1UoTsVSrypjr6YsQKS90/img.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">MBTI</h5>
+            <p class="card-text">
+              MBTI는 INTJ입니다. <br />
+              소수정예의 사람들과 전략을 만들어가는 것을 좋합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img
+            src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRzVWhPNlxLnKa0gkr7O8nFMe18MrDGa_r4QPPlUyIPZUW7ELqh-H3_nCqxHDcLUruSSBu815JMTXLAjKvodfysS3s5v3xCnlSlXbxh8Q"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">여행</h5>
+            <p class="card-text">
+              저의 취미는 새로운 곳에 가는거에요. <br />
+              걸어다니면서 사람구경하고 맛집가는게 좋아요.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img
+            src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?ga=GA1.1.135778670.1703291672&semt=ais_hybrid"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">맛있는 음식</h5>
+            <p class="card-text">
+              맛있는 음식 먹는 것도 좋아합니다. <br />
+              양꼬치, 치킨, 오꼬노미야끼, 회 등 세상에 맛있는 음식이 많아서
+              행복해요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
