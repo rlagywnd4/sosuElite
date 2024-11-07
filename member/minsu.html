@@ -13,21 +13,15 @@
     />
 
     <!-- 파비콘 -->
-    <link rel="icon" href="../res/jinsol.png" type="image/x-icon" />
+    <link rel="icon" href="../res/pig.png" type="image/x-icon" />
 
     <title>아이엠그라운드</title>
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-
-      * {
-        font-family: 'Gowun Dodum', sans-serif;
-      }
-
       .main {
         color: white;
 
-        background-image: url('https://cdn.pixabay.com/photo/2020/09/09/02/12/smearing-5556288_1280.jpg');
+        background-image: url('../res/house.png');
         background-position: center;
         background-size: cover;
       }
@@ -51,9 +45,8 @@
       }
 
       .card-img-top {
-        margin-top: 20px;
-        width: 400px;
-        height: 400px;
+        width: 250px;
+        height: 500px;
       }
 
       .card {
@@ -66,8 +59,9 @@
         flex-wrap: wrap;
       }
 
-      .card-body {
-        height: 130px;
+      #profile {
+        width: 200px;
+        height: 200px;
       }
     </style>
 
@@ -84,14 +78,13 @@
       }
     </script>
   </head>
-
   <body>
     <div class="main">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5" id="intro">
           <div id="info">
-            <h2 class="display-5 fw-bold">송진솔</h2>
-            <p class="fs-4">소수정예팀의 <br />백지상태인 팀원입니다.</p>
+            <h2 class="display-5 fw-bold">박민수</h2>
+            <p class="col-md-8 fs-4">소수정예팀의 늦게 합류한 팀원입니다.</p>
             <div id="heart">♡♡♡♡♡</div>
             <button
               type="button"
@@ -102,7 +95,7 @@
             </button>
           </div>
           <div id="photo">
-            <img src="../res/jinsol.png" alt="" />
+            <img src="../res/pig.png" alt="" id="profile" />
           </div>
         </div>
       </div>
@@ -112,42 +105,32 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card">
-          <img
-            src="https://cdn.edujin.co.kr/news/photo/202102/35063_66368_1421.jpg"
-            class="card-img-top"
-            alt="..."
-          />
+          <img src="../res/ENFP.png" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">ESFP</h5>
-            <p class="card-text">저의 mbti는 ESFP입니다.</p>
+            <h5 class="card-title">ENFP</h5>
+            <p class="card-text">저의 mbti는 ENFP입니다.</p>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card">
-          <img src="../res/이레오.jpg" class="card-img-top" alt="..." />
+          <img src="../res/OTT.png" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">애완 파충류 키우기</h5>
+            <h5 class="card-title">OTT 보기</h5>
             <p class="card-text">
-              저는 애완파충류를 키우고 있습니다!! <br />
-              이름은 레오이고 레오와 함께 보내는 시간을 좋아합니다
+              저의 취미는 OTT 보기입니다. <br />인터넷만 있으면 어디서나 이용할
+              수 있고 제가 원하는 시간에 콘텐츠를 즐길 수 있어서 좋아합니다!
             </p>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card">
-          <img
-            src="https://i.pinimg.com/736x/b1/64/bd/b164bdf88d0f5f6e44b575f4eb5d03db.jpg"
-            class="card-img-top"
-            alt="..."
-          />
+          <img src="../res/meat.png" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">좋아하는 음식 / 싫어하는 음식</h5>
+            <h5 class="card-title">좋아하는 음식</h5>
             <p class="card-text">
-              육류와 해산물을 좋아합니다!! <br />
-              고수는 좋아하지 않아요.... 향이 너무 강해서<br />
-              그외엔 잘먹는편 입니다!!
+              맛있는건 대부분 좋아하지만 그 중에서 고기를 제일 좋아합니다!
             </p>
           </div>
         </div>
