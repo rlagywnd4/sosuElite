@@ -37,6 +37,34 @@
         align-items: center;
         justify-content: center;
       }
+
+      .mypostingbox {
+            width: 500px;
+            margin: 20px auto 20px auto;
+
+            border: 1px solid rgb(230, 126, 126);
+            padding: 20px;
+            border-radius: 5px;
+
+        }
+
+        body {
+            background-color: white;
+        }
+
+        .mypostingbox>button {
+            width: 50%;
+            margin-left: 100px;
+            
+        }
+
+        .main2 {
+
+            width: fit-content;
+            margin: 20px auto 20px 50px;
+            color:rgb(230, 126, 126);
+        }
+
     </style>
 
     <script>
@@ -52,6 +80,38 @@
           });
       });
     </script>
+
+<script>
+
+  function openclose() {
+      $('#postingbox').toggle();
+  }
+
+  function makeCard() {
+      let image = $('#iamge').val();
+      let name = $('#name').val();
+      let todayIam = $('#todayIam').val();
+      let comment = $('#comment').val();
+
+      let temp_html = `
+      <div class="col">
+          <div class="card h-100">
+              <img src="${image}"
+                  class="card-img-top" alt="...">
+              <div class="card-body" >
+                  <div>
+                  <h5 class="card-title">${name}</h5>
+                  <p class="card-text">${todayIam}</p>
+                  <p class="card-story">${comment}</p>
+                  </div>
+                  <div style="float: right"><button type="button" class="btn btn-danger">삭제</button></div>
+              </div>
+          </div>
+      </div>`;
+      $('#card').append(temp_html);
+  }
+</script>
+
   </head>
   <body>
     <div class="title">
@@ -129,5 +189,44 @@
         </div>
       </div>
     </div>
+
+    <div class="main2">
+      <h1 style="display: inline-block;">멤버소개</h1>
+      <button class="btn btn-outline-danger" onclick="openclose()" type="button" style="display: inline-block;">추가</button>
+  </div>
+
+  <div class="mypostingbox" id="postingbox" style="display: none;">
+      <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="iamge" placeholder="사진">
+          <label for="floatingInput">사진</label>
+      </div>
+      <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="name" placeholder="이름">
+          <label for="floatingInput">이름</label>
+      </div>
+      <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">오늘의기분</label>
+          <select class="form-select" id="todayIam">
+              <option selected>기분게이지!</option>
+              <option value="⭐">⭐</option>
+              <option value="⭐⭐">⭐⭐</option>
+              <option value="⭐⭐⭐">⭐⭐⭐</option>
+              <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+              <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          </select>
+      </div>
+      <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="comment" placeholder="자기소개">
+          <label for="floatingInput">아이엠 그라운드 자기소개 시작!!</label>
+      </div>
+      <button onclick="makeCard()" type="button" class="btn btn-danger">기록하기</button>
+
+  </div>
+  <div class="mycards">
+      <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
+
+      </div>
+  </div>
+    
   </body>
 </html>
