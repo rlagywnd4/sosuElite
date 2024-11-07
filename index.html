@@ -108,6 +108,10 @@
 
       //   $('#card').append(temp_html);
       // }
+
+      function deleteCard(button) {
+        $(button).closest('.col').remove();
+      }
     </script>
 
     <script>
@@ -146,7 +150,7 @@
                   <p class="card-text">${todayIam}</p>
                   <p class="card-story">${comment}</p>
                   </div>
-                  <div style="float: right"><button type="button" class="btn btn-danger">삭제</button></div>
+                  <div style="float: right"><button type="button" class="btn btn-danger" onClick="deleteCard(this)">삭제</button></div>
               </div>
           </div>
       </div>`;
